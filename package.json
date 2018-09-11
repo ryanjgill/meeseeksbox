@@ -16,5 +16,14 @@
   "dependencies": {
     "child-process-promise": "^2.2.1",
     "onoff": "^3.2.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanjgill/meeseeks_box.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ryanjgill/meeseeks_box/issues"
+  },
+  "homepage": "https://github.com/ryanjgill/meeseeks_box#readme"
 }
