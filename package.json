@@ -1,0 +1,20 @@
+{
+  "name": "meeseeksbox",
+  "version": "1.0.0",
+  "description": "Plays random audio clips of Mr Meeseeks when you push the button, using Raspberry Pi.",
+  "main": "index.js",
+  "scripts": {
+    "start": "sudo $(which node) index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Mr",
+    "Meeseeks"
+  ],
+  "author": "Ryan Gill",
+  "license": "ISC",
+  "dependencies": {
+    "child-process-promise": "^2.2.1",
+    "onoff": "^3.2.1"
+  }
+}
