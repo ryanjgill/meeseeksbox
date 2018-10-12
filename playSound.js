@@ -1,4 +1,3 @@
-const fs = require('fs')
 const exec = require('child-process-promise').exec
 
 module.exports = (LED, soundList) => {
