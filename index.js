@@ -3,7 +3,7 @@ const LED = new Gpio(25, 'out'); // LED on GOOGLE Voice HAT
 const pushButton = new Gpio(23, 'in', 'both'); // Button on GOOGLE Voice HAT
 const playSound = require('./utils/playSound')
 const updateList = require('./utils/updateList')
-const soundList = []
+let soundList = []
 
 pushButton.watch(function (err, value) {
   if (err) { //if an error
