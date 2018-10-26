@@ -2,6 +2,7 @@ const Gpio = require('onoff').Gpio;
 const LED = new Gpio(25, 'out'); // LED on GOOGLE Voice HAT
 const pushButton = new Gpio(23, 'in', 'both'); // Button on GOOGLE Voice HAT
 const playSound = require('./utils/playSound')
+const updateList = require('./utils/updateList')
 const soundList = []
 
 pushButton.watch(function (err, value) {
@@ -13,6 +14,10 @@ pushButton.watch(function (err, value) {
   LED.writeSync(1); //turn LED on
 
   if (value === 0) {
+    soundList = soundList.length === 0
+      ? updateList()
+      : soundList
+
     playSound(LED, soundList) // play sound when pressed
   }
 });
