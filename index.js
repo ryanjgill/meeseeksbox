@@ -4,11 +4,17 @@ const pushButton = new Gpio(23, 'in', 'both'); // Button on GOOGLE Voice HAT
 const playSound = require('./utils/playSound')
 const updateList = require('./utils/updateList')
 let soundList = []
+let inSession = false
 
 pushButton.watch(function (err, value) {
   if (err) { //if an error
     console.error('There was an error', err); //output error message to console
   return;
+  }
+
+  if (inSession) {
+    console.log('Already in session, please try again when light turns off.')
+    return;
   }
 
   LED.writeSync(1); //turn LED on
@@ -18,7 +24,7 @@ pushButton.watch(function (err, value) {
       ? updateList()
       : soundList
 
-    playSound(LED, soundList) // play sound when pressed
+    playSound(LED, soundList, inSession) // play sound when pressed
   }
 });
 
