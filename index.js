@@ -18,13 +18,23 @@ pushButton.watch(function (err, value) {
   }
 
   LED.writeSync(1); //turn LED on
+  inSession = true
 
   if (value === 0) {
     soundList = soundList.length === 0
       ? updateList()
       : soundList
 
-    playSound(LED, soundList, inSession) // play sound when pressed
+    playSound(soundList) // play sound when pressed
+      .then(() => {
+        LED.writeSync(0)
+        inSession = false
+      })
+      .catch((err) => {
+        LED.writeSync(0)
+        inSession = false
+        console.log(err)
+      })
   }
 });
 
